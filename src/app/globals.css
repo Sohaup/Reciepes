@@ -120,3 +120,24 @@
     @apply bg-background text-foreground;
   }
 }
+
+@layer components {
+  /* .slide-one {
+    @apply bg-radial from-5% from-purple-700 to-purple-900 w-screen h-screen;
+  }
+  .slide-two {
+    @apply bg-radial from-5% from-yellow-700 to-yellow-900 w-screen h-screen;
+  }
+  .slide-three {
+    @apply bg-radial from-5% from-green-700 to-green-900 w-screen h-screen;
+  } */
+   /* body {
+    @apply bg-slate-700;
+   } */
+  .icon-center {
+    @apply flex p-2 bg-yellow-900 h-8 w-8 rounded-full justify-center items-center ;
+  }
+  .cont {
+    @apply w-[90%] xl:w-full mx-auto; 
+  }
+}
