@@ -140,4 +140,7 @@
   .cont {
     @apply w-[90%] xl:w-full mx-auto; 
   }
+  .recipesLandingGradient {
+      @apply bg-radial from-5% from-yellow-700 to-yellow-900 w-screen h-screen;
+  }
 }
