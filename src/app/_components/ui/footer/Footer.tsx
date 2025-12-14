@@ -16,7 +16,7 @@ export default function Footer() {
             <div className="links">
                 <ul className='flex gap-5'>
                     <li>
-                        <Link href={"/recipes"} className={`${path == "/" ? 'text-yellow-400' : ""}`}>Home</Link>
+                        <Link href={"/"} className={`${path == "/" ? 'text-yellow-400' : ""}`}>Home</Link>
                     </li>
                     <li>
                         <Link href={"/recipes"} className={`${path == "/recipes" ? 'text-yellow-800' : ""}`}>Recipes</Link>
