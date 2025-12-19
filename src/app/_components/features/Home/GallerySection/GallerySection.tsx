@@ -7,6 +7,7 @@ import Image from 'next/image'
 import {gsap} from "gsap"
 import { useGSAP } from '@gsap/react'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import bgImg from "@/../public/imgs/home/foodBg.jpg"
 
 export default function GallerySection() {
   const gallerySectionRef = useRef<HTMLDivElement>(null);
@@ -23,7 +24,7 @@ export default function GallerySection() {
     })
   } , []);
   return (
-    <section className=' py-20 flex  flex-col gap-3 items-center justify-center gallery' ref={gallerySectionRef}>
+    <section className={` py-20 flex  flex-col gap-3 items-center justify-center gallery  `} ref={gallerySectionRef}>
         <div className="title">
           <h1 className='text-white text-4xl font-bold font-serif'>Our Populer Bread</h1>
         </div>
