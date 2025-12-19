@@ -49,10 +49,11 @@ function ChefPreview({ chefPreviewInfo, direction }: { chefPreviewInfo: ChefPrev
     gsap.registerPlugin(ScrollTrigger);
     useGSAP(()=> {
         gsap.from(chefPreviewRef.current , {
-            x:400 ,
+            x:direction == "normal" ? 400 : -400 ,
             duration:2 ,
             scrollTrigger:{
-                trigger:chefPreviewRef.current
+                trigger:chefPreviewRef.current ,
+                start:"1000px"
             }
         });
     } , [])
@@ -63,7 +64,7 @@ function ChefPreview({ chefPreviewInfo, direction }: { chefPreviewInfo: ChefPrev
                 <Image src={chefPreviewInfo.path} alt={chefPreviewInfo.title} width={200} height={200} className='w-80 h-80 rounded-full border-3 border-yellow-800  ' />
             </div>
             <div className={`details w-full md:w-3/4 lg:w-1/2 flex  flex-col gap-8 `}>
-                <h2 className={`text-2xl font-bold ${montserratFont.className}`}>{chefPreviewInfo.title}</h2>
+                <h2 className={`text-2xl font-bold ${montserratFont.className} text-center lg:text-start`}>{chefPreviewInfo.title}</h2>
                 <p className={`${merriWeatherFont.className}`}>{chefPreviewInfo.description}</p>
                 <Button className='bg-yellow-900 self-center lg:self-start hover:bg-yellow-700 shadow-2xl'>Search Recipes</Button>
             </div>

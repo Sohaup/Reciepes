@@ -1,7 +1,13 @@
+'use client'
 import Image from 'next/image'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import shrimpDishImg from "@/../public/imgs/home/shrimpDish.png"
-import { Montserrat , Merriweather} from 'next/font/google';
+import { Montserrat, Merriweather } from 'next/font/google';
+import { useDispatch, useSelector } from 'react-redux';
+import { dispatchType, storeType } from '@/store/store';
+import { getRecipesAfterSearch } from '@/store/slices/recipeSlice';
+import Loader from '@/app/_components/ui/Loader/Loader';
+import RecipeCard from '../../Recipes/RecipeCard/RecipeCard';
 
 
 const montserratFont = Montserrat();
@@ -9,20 +15,24 @@ const merriWeatherFont = Merriweather();
 
 
 export default function IntroSection() {
-  return (
-    <section className='py-15 flex flex-col w-full lg:w-3/4 mx-auto items-center '>
-        <div className="texts flex flex-col gap-5 items-center ">
-            <h2 className={`${montserratFont.className} text-yellow-900 text-4xl font-bold w-3/4`}>
-                That`s more than food it`s an Exprerience 
-            </h2>
-            <p className={`${merriWeatherFont.className} text-slate-800 text-lg w-3/4 lg:w-1/2 `}>
-                welcome in the most easyest site to search for food recipes
-                here you can search between aton of food recipes among the world   
-            </p>
-        </div>
-        <div className="img w-1/2 lg:w-1/4">
-            <Image src={shrimpDishImg} alt='shrimp dish ' width={200}  height={200} className='w-full '/>
-        </div>
-    </section>
-  )
+    const dispatch = useDispatch<dispatchType>();
+    const recipeState = useSelector((store: storeType) => store.recipeSlice);
+    useEffect(() => {
+        dispatch(getRecipesAfterSearch("lemon"));
+    }, []);
+    if (recipeState.loading) {
+        return <Loader />
+    } else {
+        return (
+            <section className='py-15  w-full flex flex-col gap-5 items-center justify-center '>
+                <div className="title">
+                    <h2 className={`${montserratFont.className} text-3xl font-bold text-center`}>Our Most Populer Drinks Recipes</h2>
+                </div>
+                <div className="main lg:w-3/4 mx-auto grid gap-5 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 place-items-center ">
+                    {recipeState.recipes.map((recipe)=> <RecipeCard key={recipe.recipe_id} recipe={recipe}/>)}
+                </div>
+                
+            </section>
+        )
+    }
 }

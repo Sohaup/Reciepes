@@ -143,4 +143,16 @@
   .recipesLandingGradient {
       @apply bg-radial from-5% from-yellow-700 to-yellow-900 w-screen h-screen;
   }
+
+  .gallery {
+    background-image: linear-gradient(to left , rgba(0,0,0,.6) , rgba(0,0,0,.6)) , url("../../public/imgs/home/foodBg.jpg");
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+  }
 }
+
+body {
+  overflow-x: hidden;
+}
+

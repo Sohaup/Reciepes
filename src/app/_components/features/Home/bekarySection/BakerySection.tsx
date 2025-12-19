@@ -22,10 +22,10 @@ export default function BakerySection() {
             duration: 2,
             scrollTrigger: { trigger: bekaryTitleRef.current }
         });
-        gsap.from(bekaryImageRef.current , {
-            duration:2 ,
-            delay:2 ,
-            clipPath:"inset(0 0 100% 0)"
+        gsap.from(bekaryImageRef.current, {
+            duration: 2,
+            delay: 2,
+            clipPath: "inset(0 0 100% 0)"
         })
         gsap.from(bekaryParagrapthRef.current, {
             y: -100,
@@ -51,17 +51,18 @@ export default function BakerySection() {
                 <div className="img lg:w-1/2 xl:w-full mx-auto  ">
                     <Image ref={bekaryImageRef} src={basketImg.src} alt={"some baked breads"} width={500} height={500} className='w-full ' />
                 </div>
-                <div className="texts  w-1/2  text-center  text-slate-800 self-center mx-auto lg:me-auto  ">
+                <div className="texts  w-1/2  text-start  text-slate-800 self-center mx-auto lg:me-auto  ">
                     <p ref={bekaryParagrapthRef} >
                         Lorem, ipsum dolor sit amet consectetur adipisicing elit. Culpa voluptatem eaque voluptates,
                         accusamus numquam magnam dolor facilis magni. Neque, ad?Lorem, ipsum dolor sit amet consectetur
                     </p>
+                    <div className="btn flex items-center justify-center xl:justify-start my-4">
+                        <Button ref={bekaryButtonRef} className='bg-yellow-950 hover:text-white text-lg '>Search Recipes</Button>
+                        <ArrowRight />
+                    </div>
                 </div>
             </div>
-            <div className="btn flex items-center justify-center xl:justify-start my-4">
-                <Button ref={bekaryButtonRef} className='bg-yellow-950 hover:text-white text-lg '>Search Recipes</Button>
-                <ArrowRight />
-            </div>
+
 
         </section>
     )
