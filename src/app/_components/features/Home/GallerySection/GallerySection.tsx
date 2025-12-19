@@ -23,11 +23,22 @@ export default function GallerySection() {
     })
   } , []);
   return (
-    <section className='cont py-20 flex  flex-col gap-3 items-center justify-center' ref={gallerySectionRef}>
-        <Image src={breadImg.src} alt='bread image' width={200} height={200} className='w-120 h-120 p-3 border-2 rounded-full'/>
+    <section className=' py-20 flex  flex-col gap-3 items-center justify-center gallery' ref={gallerySectionRef}>
+        <div className="title">
+          <h1 className='text-white text-4xl font-bold font-serif'>Our Populer Bread</h1>
+        </div>
+        <span className='p-3 border-2 rounded-full bg-slate-200'>
+        <Image src={breadImg.src} alt='bread image' width={200} height={200} className='w-120 h-120 '/>
+        </span>
+        
         <div className="group flex flex-col lg:flex-row gap-3 ">
-            <Image src={bread2Img.src} alt='' width={200} height={200} className='w-120 h-120 border-2  p-3 rounded-full'/>
-            <Image src={bread3Img.src} alt='' width={200} height={200} className='w-120 h-120 border-2 p-3 rounded-full'/>
+          <span className='p-3 border-2 rounded-full bg-slate-200'>
+             <Image src={bread2Img.src} alt='' width={200} height={200} className='w-120 h-120 '/>
+          </span>
+           <span className='p-3 border-2 rounded-full bg-slate-200'>
+            <Image src={bread3Img.src} alt='' width={200} height={200} className='w-120 h-120 '/>
+           </span>
+            
         </div>
     </section>
   )

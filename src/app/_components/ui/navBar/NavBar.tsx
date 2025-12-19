@@ -27,7 +27,7 @@ const alfaFont = Alfa_Slab_One({
 export default function NavBar() {
 
     return (
-        <nav className='bg-white fixed top-0 z-50 w-full flex justify-between items-center  '>
+        <nav className='bg-white fixed top-0 z-50 w-full flex justify-evenly items-center  '>
             <MainLogoDisplay />
             <Links className={`hidden ${alfaFont.className} `} />
             <Icons className='' />
@@ -53,7 +53,7 @@ function Links({ className }: { className: string }) {
         <div className={`links  lg:block ${className} transition-all duration-700 `}>
             <ul className={`flex flex-col lg:flex-row   gap-5 h-full text-black `}>
                 <li><Link href={"/"} className={`${path == "/" ? 'text-yellow-800' : ""}`} >Home</Link></li>
-                <li><Link href={"/recipes"} className={`${path == "/recipes" ? 'text-yellow-800' : ""}`} >Recipes</Link></li>
+                <li><Link href={"/recipes"} className={`${path == "/recipes" || path.match(/\/recipes\/*/) ? 'text-yellow-800' : ""}`} >Recipes</Link></li>
                 <li><Link href={"/dic"} className={`${path == "/dic" ? 'text-yellow-800' : ""}`}>Available Reciepes</Link></li>
             </ul>
         </div>
