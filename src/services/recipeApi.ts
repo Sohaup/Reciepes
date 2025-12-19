@@ -1,10 +1,13 @@
+import { saveToSession } from "@/utilities/sessionHandle";
+
 export async function getRecipies(meal:string) {   
     const res = await fetch(`https://forkify-api.herokuapp.com/api/search?q=${meal}` , {
         cache:"no-cache" ,
         method:"GET"
     });
     const responseJson = await res.json();
-    return responseJson.recipes
+    saveToSession(meal);   
+    return responseJson.recipes;
 }
 
 export async function getSpecificRecipeDetails(id:string) {
@@ -15,3 +18,4 @@ export async function getSpecificRecipeDetails(id:string) {
     const responseJson = await res.json();
     return responseJson.recipe
 }
+
