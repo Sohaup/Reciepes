@@ -11,11 +11,11 @@ import Loader from '@/app/_components/ui/Loader/Loader';
 export default function RecipesSearch() {
     const dispatch = useDispatch<any>();
     const recipes = useSelector((store: storeType) => store.recipeSlice);
-    const [seachValue, setSearchValue] = useState(window.localStorage.getItem("meal") ?? "pizza");
+    const [seachValue, setSearchValue] = useState("pizza");
     const inputRef = useRef<HTMLInputElement>(null)
     useEffect(() => {
-        dispatch(getRecipesAfterSearch(seachValue));
-        console.log(recipes.loading)
+        localStorage.getItem("meal") ? setSearchValue(localStorage.getItem("meal")!) : "pizza";
+        dispatch(getRecipesAfterSearch(seachValue));        
     }, [seachValue]);
 
     function perFormSearch(e: React.MouseEvent<HTMLButtonElement>) {
