@@ -11,7 +11,7 @@ import Loader from '@/app/_components/ui/Loader/Loader';
 export default function RecipesSearch() {
     const dispatch = useDispatch<any>();
     const recipes = useSelector((store: storeType) => store.recipeSlice);
-    const [seachValue, setSearchValue] = useState(localStorage.getItem("meal") ?? "pizza");
+    const [seachValue, setSearchValue] = useState(window.localStorage.getItem("meal") ?? "pizza");
     const inputRef = useRef<HTMLInputElement>(null)
     useEffect(() => {
         dispatch(getRecipesAfterSearch(seachValue));
