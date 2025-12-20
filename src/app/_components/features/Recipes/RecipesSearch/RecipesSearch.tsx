@@ -12,16 +12,17 @@ export default function RecipesSearch() {
     const dispatch = useDispatch<any>();
     const recipes = useSelector((store: storeType) => store.recipeSlice);
     const [seachValue, setSearchValue] = useState("pizza");
-    const inputRef = useRef<HTMLInputElement>(null)
-    useEffect(() => {
+    const inputRef = useRef<HTMLInputElement>(null);
+    useEffect(()=> {
         localStorage.getItem("meal") ? setSearchValue(localStorage.getItem("meal")!) : "pizza";
+    },[]);
+    useEffect(() => {        
         dispatch(getRecipesAfterSearch(seachValue));        
     }, [seachValue]);
 
     function perFormSearch(e: React.MouseEvent<HTMLButtonElement>) {
         e.preventDefault();
-        console.log(inputRef.current?.value)
-        setSearchValue(inputRef.current?.value!);
+        setSearchValue(inputRef.current?.value!);        
     }
 
     if (recipes.loading) {
