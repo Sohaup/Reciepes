@@ -4,8 +4,6 @@ import "./globals.css";
 import NavBar from "./_components/ui/navBar/NavBar";
 import ThemeProvider from "@/providers/themeProvider";
 import Footer from "./_components/ui/footer/Footer";
-import { Provider } from "react-redux";
-import store from "@/store/store";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -18,8 +16,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Reciepes",
-  description: "Reciepes websites by next js",
+  title: "Reciepes ",
+  description: "website For Reciepes ",
 };
 
 export default function RootLayout({
@@ -30,7 +28,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased `}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased overflow-x-hidden max-w-screen `}
       >
         <ThemeProvider >
           <>
