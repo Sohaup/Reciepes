@@ -25,7 +25,8 @@ export default function BakerySection() {
         gsap.from(bekaryImageRef.current, {
             duration: 2,
             delay: 2,
-            clipPath: "inset(0 0 100% 0)"
+            clipPath: "inset(0 0 100% 0)" ,
+            scrollTrigger: { trigger: bekaryTitleRef.current }
         })
         gsap.from(bekaryParagrapthRef.current, {
             y: -100,

@@ -27,7 +27,7 @@ const alfaFont = Alfa_Slab_One({
 export default function NavBar() {
 
     return (
-        <nav className='bg-white fixed top-0 z-50 w-full flex justify-evenly items-center  '>
+        <nav className='bg-white fixed top-0 z-50 w-full max-w-screen flex justify-evenly items-center  '>
             <MainLogoDisplay />
             <Links className={`hidden ${alfaFont.className} `} />
             <Icons className='' />

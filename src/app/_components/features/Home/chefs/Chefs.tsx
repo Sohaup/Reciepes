@@ -37,7 +37,7 @@ const merriWeatherFont = Merriweather();
 
 export default function ChefsSection() {
     return (
-        <section className='py-15 flex flex-col gap-10 items-center justify-evenly w-full lg:w-3/4 mx-auto'>
+        <section className='py-15 overflow-x-hidden max-w-screen flex flex-col gap-10 items-center justify-evenly w-full lg:w-3/4 mx-auto'>
             {chefsInfoes.map((info, index) => <ChefPreview key={info.path} chefPreviewInfo={info} direction={index % 2 == 0 ? "reverse" : "normal"} />)}
         </section>
     )
